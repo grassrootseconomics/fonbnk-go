@@ -5,6 +5,7 @@ import (
 	"crypto/sha256"
 	"encoding/base64"
 	"fmt"
+	"log"
 	"net/http"
 	"time"
 )
@@ -12,11 +13,12 @@ import (
 func (fc *FonbnkClient) setAuthHeaders(req *http.Request) error {
 	timestamp := fmt.Sprintf("%d", time.Now().UnixMilli())
 	signature, err := generateSignature(fc.clientSecret, timestamp, req.URL.RequestURI())
+	log.Println(req.URL.RequestURI())
 	if err != nil {
 		return err
 	}
 
-	req.Header.Set("x-client-id", fc.clientId)
+	req.Header.Set("x-client-id", fc.clientID)
 	req.Header.Set("x-timestamp", timestamp)
 	req.Header.Set("x-signature", signature)
 

@@ -10,7 +10,7 @@ import (
 )
 
 type FonbnkClient struct {
-	clientId     string
+	clientID     string
 	clientSecret string
 	sourceParam  string
 	endpoint     string
@@ -28,7 +28,7 @@ const (
 // New returns an instance of a Fonbnk client reusbale across different products
 func New(clientId string, clientSecret string, sourceParam string, sandbox bool) *FonbnkClient {
 	fonbnkClient := &FonbnkClient{
-		clientId:     clientId,
+		clientID:     clientId,
 		clientSecret: clientSecret,
 		sourceParam:  sourceParam,
 		httpClient: &http.Client{
