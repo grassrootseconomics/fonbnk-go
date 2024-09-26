@@ -110,6 +110,21 @@ type (
 
 const offRampPath = "/api/offramp/"
 
+func (fc *FonbnkClient) GetOrder(ctx context.Context, orderID string) (OrderResponse, error) {
+	orderResp := OrderResponse{}
+
+	resp, err := fc.requestWithCtx(ctx, http.MethodGet, fc.endpoint+offRampPath+"order/"+orderID, nil)
+	if err != nil {
+		return orderResp, err
+	}
+
+	if err := parseResponse(resp, &orderResp); err != nil {
+		return orderResp, err
+	}
+
+	return orderResp, nil
+}
+
 func (fc *FonbnkClient) OrderLimits(ctx context.Context, input OrderLimitsQuery) (OrderLimitsResponse, error) {
 	orderLimitsResp := OrderLimitsResponse{}
 
