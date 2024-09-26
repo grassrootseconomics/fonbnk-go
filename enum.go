@@ -7,6 +7,8 @@ type (
 	OffRampCurrency    string
 	OffRampAsset       string
 	OffRampPaymentType string
+	KYCStatus          string
+	KYCIDType          string
 )
 
 const (
@@ -28,4 +30,13 @@ const (
 	USDC OffRampAsset = "USDC"
 
 	CRYPTO OffRampPaymentType = "CRYPTO_WALLET"
+
+	INITIATED KYCStatus = "initiated"
+	APPROVED  KYCStatus = "approved"
+	REJECTED  KYCStatus = "rejected"
+	INVALID   KYCStatus = "invalid"
+
+	KE_NATIONAL_ID KYCIDType = "NATIONAL_ID"
+	KE_PASSPORT    KYCIDType = "PASSPORT"
+	KE_ALIEN_CARD  KYCIDType = "ALIEN_CARD"
 )
