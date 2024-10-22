@@ -25,7 +25,7 @@ type (
 		UserFields  struct {
 			FirstName string    `json:"first_name"`
 			LastName  string    `json:"last_name"`
-			Dob       time.Time `json:"dob"`
+			DOB       time.Time `json:"dob"`
 			Email     string    `json:"email"`
 			IDNumber  string    `json:"id_number"`
 		} `json:"userFields"`

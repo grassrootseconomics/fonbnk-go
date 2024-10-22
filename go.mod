@@ -1,4 +1,4 @@
-module github.com/grassrootseconomics/fonbnk-go/v1
+module github.com/grassrootseconomics/fonbnk-go
 
 go 1.23.0
 
