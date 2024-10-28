@@ -28,6 +28,7 @@ const (
 	CUSD OffRampAsset = "CUSD"
 	USDT OffRampAsset = "USDT"
 	USDC OffRampAsset = "USDC"
+	CKES OffRampAsset = "CKES"
 
 	CRYPTO OffRampPaymentType = "CRYPTO_WALLET"
 

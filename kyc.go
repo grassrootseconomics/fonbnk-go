@@ -36,7 +36,7 @@ type (
 	}
 )
 
-const kycPath = "/api/kyc/"
+const kycPath = "/kyc/"
 
 func (fc *FonbnkClient) KYCState(ctx context.Context, phoneNumber string) (KYCStateResponse, error) {
 	kycStateResp := KYCStateResponse{}

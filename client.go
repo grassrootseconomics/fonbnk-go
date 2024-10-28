@@ -21,8 +21,8 @@ const (
 	userAgent   = "fonbnk-go"
 	contentType = "application/json"
 
-	baseLiveEndpoint    = "https://aten.fonbnk-services.com"
-	baseSandboxEndpoint = "https://sandbox-api.fonbnk.com"
+	baseLiveEndpoint    = "https://aten.fonbnk-services.com/api"
+	baseSandboxEndpoint = "https://sandbox-api.fonbnk.com/api"
 )
 
 // New returns an instance of a Fonbnk client reusbale across different products
@@ -46,10 +46,8 @@ func New(clientId string, clientSecret string, sourceParam string, sandbox bool)
 }
 
 // SetHTTPClient can be used to override the default client with a custom set one
-func (fc *FonbnkClient) SetHTTPClient(httpClient *http.Client) *FonbnkClient {
+func (fc *FonbnkClient) SetHTTPClient(httpClient *http.Client) {
 	fc.httpClient = httpClient
-
-	return fc
 }
 
 // setHeaders sets the headers required by the Fonbnk API
@@ -95,7 +93,7 @@ func parseResponse(resp *http.Response, target interface{}) error {
 			return err
 		}
 
-		return fmt.Errorf("Fonbnk server error: code=%s: response_body=%s", resp.Status, string(b))
+		return fmt.Errorf("fonbnk server error: code=%s: response_body=%s", resp.Status, string(b))
 	}
 
 	return json.NewDecoder(resp.Body).Decode(target)

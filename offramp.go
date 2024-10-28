@@ -108,7 +108,7 @@ type (
 	}
 )
 
-const offRampPath = "/api/offramp/"
+const offRampPath = "/offramp/"
 
 func (fc *FonbnkClient) GetOrder(ctx context.Context, orderID string) (OrderResponse, error) {
 	orderResp := OrderResponse{}
